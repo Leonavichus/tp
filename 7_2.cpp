@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 
 class Complex
@@ -7,28 +8,28 @@ class Complex
 
 public:
     Complex(int c = 0, int d = 0) : a(c), b(d) {}
-    Complex operator+(Complex ob);
-    Complex operator-(Complex ob);
-    Complex operator=(Complex ob);
+    Complex &operator+(Complex &ob);
+    Complex &operator-(Complex &ob);
+    Complex &operator=(Complex &ob);
     friend ostream &operator<<(ostream &out_stream, const Complex &dt);
     friend istream &operator>>(istream &in_stream, Complex &dt);
 };
 
-Complex Complex::operator+(Complex ob)
+Complex &Complex::operator+(Complex &ob)
 {
     a = a + ob.a;
     b = b + ob.b;
     return (*this);
 }
 
-Complex Complex::operator-(Complex ob)
+Complex &Complex::operator-(Complex &ob)
 {
     a = a - ob.a;
     b = b - ob.b;
     return (*this);
 }
 
-Complex Complex::operator=(Complex ob)
+Complex &Complex::operator=(Complex &ob)
 {
     a = ob.a;
     b = ob.b;
@@ -61,9 +62,9 @@ class Matrix
 
 public:
     Matrix(int strn, int column);
-    Matrix<T> operator+(Matrix<T> mtr);
-    Matrix<T> operator-(Matrix<T> mtr);
-    Matrix<T> operator=(Matrix<T> mtr);
+    Matrix<T> &operator+(Matrix<T> &mtr);
+    Matrix<T> &operator-(Matrix<T> &mtr);
+    Matrix<T> &operator=(Matrix<T> &mtr);
     friend ostream &operator<<(ostream &out_stream, const Matrix<T> &matr);
     friend istream &operator>>(istream &in_stream, Matrix<T> &matr);
 };
@@ -112,7 +113,7 @@ ostream &operator<<(ostream &out_stream, const Matrix<T> &matr)
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::operator+(Matrix<T> mtr)
+Matrix<T> &Matrix<T>::operator+(Matrix<T> &mtr)
 {
     int i, j;
     for (i = 0; i < strn; i++)
@@ -122,7 +123,7 @@ Matrix<T> Matrix<T>::operator+(Matrix<T> mtr)
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::operator-(Matrix<T> mtr)
+Matrix<T> &Matrix<T>::operator-(Matrix<T> &mtr)
 {
     int i, j;
     for (i = 0; i < strn; i++)
@@ -132,7 +133,7 @@ Matrix<T> Matrix<T>::operator-(Matrix<T> mtr)
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::operator=(Matrix<T> mtr)
+Matrix<T> &Matrix<T>::operator=(Matrix<T> &mtr)
 {
     int i, j;
     for (i = 0; i < strn; i++)
@@ -147,13 +148,12 @@ int main()
     cout << "Enter the values (int) : " << endl;
     cin >> ob_1;
     cin >> ob_2;
-
     cout << "integer + integer : \n"
          << (ob_1 + ob_2);
     cout << "integer - integer : \n"
          << (ob_1 - ob_2);
 
-    Matrix<float> ob_3(3.0, 3.0), ob_4(3.0, 3.0);
+    Matrix<float> ob_3(3, 3), ob_4(3, 3);
     cout << "Enter the values (float) : " << endl;
     cin >> ob_3;
     cin >> ob_4;
