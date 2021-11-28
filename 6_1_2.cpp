@@ -2,6 +2,12 @@
 #include <cstring>
 using namespace std;
 
+/*
+Пояснения:
+1) Присутсвует множественное наследование, для решения этой проблемы нужно виртуально наследовать классы
+2) Я не знаю что объяснять в результатах, просто выводятся значения заданные нами в инициализации
+*/
+
 class DomesticAnimal
 {
 protected:
@@ -10,9 +16,9 @@ protected:
     string color;
 
 public:
-    DomesticAnimal() {}
-    DomesticAnimal(double w, double p, string c) : weight(w), price(p), color(c) {}
-    void print()
+    DomesticAnimal() {}                                                             // Конструктор без параметров
+    DomesticAnimal(double w, double p, string c) : weight(w), price(p), color(c) {} // Конструктор с параметрами
+    void print()                                                                    // Вывод значения полей класса
     {
         cout << "DomesticAnimal:" << endl;
         cout << "weight: " << weight << endl
@@ -21,48 +27,48 @@ public:
     }
 };
 
-class Cow : virtual public DomesticAnimal
+class Cow : virtual public DomesticAnimal // Виртуальное наследование
 {
 public:
-    Cow() {}
-    Cow(double w, double p, string c) : DomesticAnimal(w, p, c) {}
-    void print()
+    Cow() {}                                                       // Конструктор без параметров
+    Cow(double w, double p, string c) : DomesticAnimal(w, p, c) {} // Конструктор с параметрами
+    void print()                                                   // Вывод значения полей класса
     {
         cout << "Cow->";
-        DomesticAnimal::print();
+        DomesticAnimal::print(); // Наследование метода от родительского класса
     }
 };
 
-class Buffalo : virtual public DomesticAnimal
+class Buffalo : virtual public DomesticAnimal // Виртуальное наследование
 {
 public:
-    Buffalo() {}
-    Buffalo(double w, double p, string c) : DomesticAnimal(w, p, c) {}
-    void print()
+    Buffalo() {}                                                       // Конструктор без параметров
+    Buffalo(double w, double p, string c) : DomesticAnimal(w, p, c) {} // Конструктор с параметрами
+    void print()                                                       // Вывод значения полей класса
     {
         cout << "Buffalo->";
-        DomesticAnimal::print();
+        DomesticAnimal::print(); // Наследование метода от родительского класса
     }
 };
 
 class Beefalo : public Cow, public Buffalo
 {
 public:
-    Beefalo() {}
-    Beefalo(double w, double p, string c) : DomesticAnimal(w, p, c) {}
-    void print()
+    Beefalo() {}                                                       // Конструктор без параметров
+    Beefalo(double w, double p, string c) : DomesticAnimal(w, p, c) {} // Конструктор с параметрами
+    void print()                                                       // Вывод значения полей класса
     {
         cout << "Beefalo->";
-        DomesticAnimal::print();
+        DomesticAnimal::print(); // Наследование метода от родительского класса
     }
 };
 
 int main()
 {
-    DomesticAnimal dir(1, 100, "red");
-    Cow co(10, 200, "withe");
-    Buffalo buf(20, 250, "black");
-    Beefalo bef(12, 450, "pink");
+    DomesticAnimal dir(1, 100, "red"); // Инициализация объекта класса DomesticAnimal с параметрами
+    Cow co(10, 200, "withe");          // Инициализация объекта класса Cow с параметрами
+    Buffalo buf(20, 250, "black");     // Инициализация объекта класса Buffalo с параметрами
+    Beefalo bef(12, 450, "pink");      // Инициализация объекта класса Beefalo с параметрами
     dir.print();
     co.print();
     buf.print();

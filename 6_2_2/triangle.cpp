@@ -1,9 +1,9 @@
 #include "includers.cpp"
 #include "triangle.h"
 
-Triangle::Triangle(double a1, double b1, double c1)
+Triangle::Triangle(double a1, double b1, double c1) // Конструктор с параметрами
 {
-  if (a1 > 0 || b1 > 0 || c1 > 0)
+  if (a1 > 0 || b1 > 0 || c1 > 0) // Проверка сторон треугольника
   {
     if (a1 + b1 > c1 && a1 + c1 > b1 && b1 + c1 > a1)
     {
@@ -23,13 +23,13 @@ Triangle::Triangle(double a1, double b1, double c1)
     exit(0);
   }
 }
-double Triangle::area()
+double Triangle::area() // Вычисление площади
 {
   double p;
   p = a + b + c;
   return sqrt(p * (p - a) * (p - b) * (p - c));
 }
-void Triangle::show()
+void Triangle::show() // Вывод информации
 {
   cout << "Фигура: Треугольник" << endl
        << "A = " << a << endl

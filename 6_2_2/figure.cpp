@@ -1,7 +1,7 @@
 #include "includers.cpp"
 #include "figure.h"
 
-Circle::Circle(double R)
+Circle::Circle(double R) // Конструктор с параметрами
 {
     if (R <= 0)
     {
@@ -13,25 +13,39 @@ Circle::Circle(double R)
         radius = R;
     }
 }
-double Circle::area()
+double Circle::area() // Вычисление площади
 {
     return 3.14 * radius * radius;
 }
-void Circle::show()
+void Circle::show() // Вывод информации
 {
     cout << "Фигура: Круг" << endl
          << "R: " << radius << endl
          << "Площадь: " << area() << endl;
 }
 
-double Rectangle::area()
+Rectangle::Rectangle(double a1, double b1) // Конструктор с параметрами
+{
+    if (a < 0 || b < 0)
+    {
+        cout << "сторона < 0" << endl;
+        exit(0);
+    }
+    else
+    {
+        a = a1;
+        b = b1;
+    }
+}
+
+double Rectangle::area() // Вычисление площади
 {
     return a * b;
 }
 
-void Rectangle::show()
+void Rectangle::show() // Вывод информации
 {
-    if (a == b)
+    if (a == b) // Проверка на квадрат или прямоугольник
     {
         cout << "Фигура: Квадрат" << endl;
     }

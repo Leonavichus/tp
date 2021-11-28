@@ -16,8 +16,8 @@ protected:
     double radius;
 
 public:
-    Circle() {}
-    Circle(double R) : radius(R)
+    Circle() {}                  // Конструктор без параметров
+    Circle(double R) : radius(R) // Конструктор с параметрами
     {
         if (R <= 0)
         {
@@ -25,8 +25,8 @@ public:
             exit(0);
         }
     }
-    double area(void) { return 3.14 * radius * radius; }
-    void show(void)
+    double area(void) { return 3.14 * radius * radius; } // Вычисление площади
+    void show(void)                                      // Вывод информации
     {
         cout << "Фигура: Круг" << endl
              << "R: " << radius << endl
@@ -41,12 +41,19 @@ protected:
     double b;
 
 public:
-    Rectangle() {}
-    Rectangle(double a1, double b1) : a(a1), b(b1) {}
-    double area(void) { return a * b; }
-    void show(void)
+    Rectangle() {}                                 // Конструктор без параметров
+    Rectangle(double a1, double b1) : a(a1), b(b1) // Конструктор с параметрами
     {
-        if (a == b)
+        if (a < 0 || b < 0)
+        {
+            cout << "сторона < 0" << endl;
+            exit(0);
+        }
+    }
+    double area(void) { return a * b; } // Вычисление площади
+    void show(void)                     // Вывод информации
+    {
+        if (a == b) // Проверка на квадрат или прямоугольник
         {
             cout << "Фигура: Квадрат" << endl;
         }
@@ -62,10 +69,10 @@ public:
 
 int main()
 {
-    Figure **figure = new Figure *[1];
-    figure[0] = new Circle(5);
-    figure[1] = new Rectangle(1, 2);
-    for (int i = 0; i < 2; i++)
+    Figure **figure = new Figure *[1]; // Создание произвольного количества фигур
+    figure[0] = new Circle(5);         // Круг
+    figure[1] = new Rectangle(-1, 2);  // Прямоугольник
+    for (int i = 0; i < 2; i++)        // Массив вывода информации
     {
         cout << "Адрес &figure[" << i << "] = " << &(figure[i]) << endl;
         figure[i]->show();
