@@ -4,7 +4,7 @@ using namespace std;
 
 /*
 template <class T, class T> T f(T x); - два класса с одинаковыми именами
-template <class T1, T2> void f(T1 x); - у второго не присутсвует класс
+template <class T1, T2> void f(T1 x); - у второго не присутствует класс
 template <class T> T f(int x); - зачем задан тип данных? надо f(T x)
 inline template <class T> T f(T x, T y) - зачем inline?
 */
@@ -33,7 +33,7 @@ CHAR max(CHAR &s1, CHAR &s2)
 int main()
 {
     int a, b;
-    cout << "Введите значеня(int)" << endl;
+    cout << "Введите значения(int)" << endl;
     cin >> a >> b;
     cout << a << " " << b << endl;
     cout << "-----" << endl;
@@ -41,7 +41,7 @@ int main()
     cout << a << " " << b << endl;
 
     char e, f;
-    cout << "Введите значеня(char)" << endl;
+    cout << "Введите значения(char)" << endl;
     cin >> e >> f;
     cout << e << " " << f << endl;
     cout << "-----" << endl;
@@ -49,17 +49,17 @@ int main()
     cout << e << " " << f << endl;
 
     string g, k;
-    cout << "Введите значеня(string)" << endl;
+    cout << "Введите значения(string)" << endl;
     cin >> g >> k;
     cout << g << " " << k << endl;
     cout << "-----" << endl;
     swap<string>(g, k); // Запуск шаблона с типом string
     cout << g << " " << k << endl;
 
-    int i = max(0, 1); // Поск максимума с типом int
+    int i = max(0, 1); // Поиск максимума с типом int
     cout << i << endl;
-    char ch = max('a', '1'); // Поск максимума с типом char
+    char ch = max('a', '1'); // Поиск максимума с типом char
     cout << ch << endl;
-    const char *ch1 = max("Hello", "World"); // Поск максимума для строк
+    const char *ch1 = max("Hello", "World"); // Поиск максимума для строк
     cout << ch1 << endl;
 }
