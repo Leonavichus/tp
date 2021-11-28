@@ -74,9 +74,7 @@ Matrix<T>::Matrix(int str, int col)
     int i, j;
     strn = str;
     column = col;
-
     m = new T *[strn];
-
     for (i = 0; i < strn; i++)
     {
         m[i] = new T[column];
