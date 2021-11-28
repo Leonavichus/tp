@@ -56,30 +56,29 @@ template <typename T>
 class Matrix
 {
     T **m;
-    int str;
+    int string;
     int column;
 
 public:
-    Matrix(int str, int column);
+    Matrix(int string, int column);
     Matrix<T> operator+(Matrix<T> mtr);
     Matrix<T> operator-(Matrix<T> mtr);
     Matrix<T> operator=(Matrix<T> mtr);
-    friend ostream &operator<<<>(ostream &out_stream, const Matrix<T> &matr);
-    friend istream &operator>><>(istream &in_stream, Matrix<T> &matr);
+    friend ostream &operator<<(ostream &out_stream, const Matrix<T> &matr);
+    friend istream &operator>>(istream &in_stream, Matrix<T> &matr);
 };
 
 template <typename T>
 Matrix<T>::Matrix(int str, int col)
 {
     int i, j;
-
     cout << "\nThe Constructor of Matrix\n";
-    str = str;
+    string = str;
     column = col;
 
-    m = new T[str];
+    m = new T[string];
 
-    for (i = 0; i < str; i++)
+    for (i = 0; i < string; i++)
     {
         m[i] = new T[column];
     }
@@ -89,7 +88,7 @@ template <typename T>
 istream &operator>>(istream &in_stream, Matrix<T> &matr)
 {
     int i, j;
-    for (i = 0; i < matr.str; i++)
+    for (i = 0; i < matr.string; i++)
     {
         for (j = 0; j < matr.column; j++)
         {
@@ -104,7 +103,7 @@ template <typename T>
 ostream &operator<<(ostream &out_stream, const Matrix<T> &matr)
 {
     int i, j;
-    for (i = 0; i < matr.str; i++)
+    for (i = 0; i < matr.string; i++)
     {
         for (j = 0; j < matr.column; j++)
         {
@@ -120,7 +119,7 @@ Matrix<T> Matrix<T>::operator+(Matrix<T> mtr)
 {
     int i, j;
 
-    for (i = 0; i < str; i++)
+    for (i = 0; i < string; i++)
         for (j = 0; j < column; j++)
             m[i][j] = m[i][j] + mtr.m[i][j];
     return (*this);
@@ -130,7 +129,7 @@ template <typename T>
 Matrix<T> Matrix<T>::operator-(Matrix<T> mtr)
 {
     int i, j;
-    for (i = 0; i < str; i++)
+    for (i = 0; i < string; i++)
         for (j = 0; j < column; j++)
             m[i][j] = m[i][j] - mtr.m[i][j];
     return (*this);
@@ -140,7 +139,7 @@ template <typename T>
 Matrix<T> Matrix<T>::operator=(Matrix<T> mtr)
 {
     int i, j;
-    for (i = 0; i < str; i++)
+    for (i = 0; i < string; i++)
         for (j = 0; j < column; j++)
             m[i][j] = mtr.m[i][j];
     return (*this);
