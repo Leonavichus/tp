@@ -145,16 +145,16 @@ Matrix<T> &Matrix<T>::operator=(Matrix<T> &mtr)
 int main()
 {
     Matrix<int> matr_0(3, 3), matr_1(3, 3);
-    cout << "Enter the values (int) : " << endl;
+    cout << "Введите значения(int) : " << endl;
     cin >> matr_0;
     cin >> matr_1;
-    cout << "integer + integer : \n"
+    cout << "int + int: " << endl
          << (matr_0 + matr_1);
-    cout << "integer - integer : \n"
+    cout << "int - int: " << endl
          << (matr_0 - matr_1);
 
     Matrix<float> matr_2(3, 3), matr_3(3, 3);
-    cout << "Enter the values (float) : " << endl;
+    cout << "Введите значения(float) : " << endl;
     cin >> matr_2;
     cin >> matr_3;
     cout << "float + float : \n"
@@ -163,7 +163,7 @@ int main()
          << (matr_2 - matr_3);
 
     Matrix<Complex> complex_1(3, 3), complex_2(3, 3);
-    cout << "Enter the values (complex) : " << endl;
+    cout << "Введите значения(complex) : " << endl;
     cin >> complex_1;
     cin >> complex_2;
     cout << "complex + complex : \n"
