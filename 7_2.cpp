@@ -148,6 +148,7 @@ Matrix<T> &Matrix<T>::operator=(Matrix<T> &mtr)
 
 int main()
 {
+    setlocale(LC_ALL, "Russian");
     Matrix<int> matr_0(3, 3), matr_1(3, 3); // Инициализация шаблона класса с типом int
     cout << "Введите значения(int) : " << endl;
     cin >> matr_0;
