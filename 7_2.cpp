@@ -38,15 +38,15 @@ Complex &Complex::operator=(Complex &ob)
 
 ostream &operator<<(ostream &out_stream, const Complex &dt)
 {
-    out_stream << dt.a << "+" << dt.b << endl;
+    out_stream << dt.a << "/" << dt.b << endl;
     return out_stream;
 }
 
 istream &operator>>(istream &in_stream, Complex &dt)
 {
-    cout << " a =";
+    cout << " a = ";
     in_stream >> dt.a;
-    cout << " b =";
+    cout << " b = ";
     in_stream >> dt.b;
     return in_stream;
 }
