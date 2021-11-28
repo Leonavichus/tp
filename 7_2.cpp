@@ -144,31 +144,31 @@ Matrix<T> &Matrix<T>::operator=(Matrix<T> &mtr)
 
 int main()
 {
-    Matrix<int> ob_1(3, 3), ob_2(3, 3);
+    Matrix<int> matr_0(3, 3), matr_1(3, 3);
     cout << "Enter the values (int) : " << endl;
-    cin >> ob_1;
-    cin >> ob_2;
+    cin >> matr_0;
+    cin >> matr_1;
     cout << "integer + integer : \n"
-         << (ob_1 + ob_2);
+         << (matr_0 + matr_1);
     cout << "integer - integer : \n"
-         << (ob_1 - ob_2);
+         << (matr_0 - matr_1);
 
-    Matrix<float> ob_3(3, 3), ob_4(3, 3);
-    cout << "Enter the values (float) : " << endl;
-    cin >> ob_3;
-    cin >> ob_4;
-    cout << "float + float : \n"
-         << (ob_3 + ob_4);
-    cout << "float - float : \n"
-         << (ob_3 - ob_4);
+    // Matrix<float> ob_3(3, 3), ob_4(3, 3);
+    // cout << "Enter the values (float) : " << endl;
+    // cin >> ob_3;
+    // cin >> ob_4;
+    // cout << "float + float : \n"
+    //      << (ob_3 + ob_4);
+    // cout << "float - float : \n"
+    //      << (ob_3 - ob_4);
 
-    Matrix<Complex> complex_1(3, 3), complex_2(3, 3);
-    cout << "Enter the values (complex) : " << endl;
-    cin >> complex_1;
-    cin >> complex_2;
+    // Matrix<Complex> complex_1(3, 3), complex_2(3, 3);
+    // cout << "Enter the values (complex) : " << endl;
+    // cin >> complex_1;
+    // cin >> complex_2;
 
-    cout << "complex + complex : \n"
-         << (complex_1 + complex_2);
-    cout << "complex - complex : \n"
-         << (complex_1 - complex_2);
+    // cout << "complex + complex : \n"
+    //      << (complex_1 + complex_2);
+    // cout << "complex - complex : \n"
+    //      << (complex_1 - complex_2);
 }
