@@ -65,8 +65,8 @@ public:
     Matrix<T> &operator+(Matrix<T> &mtr);
     Matrix<T> &operator-(Matrix<T> &mtr);
     Matrix<T> &operator=(Matrix<T> &mtr);
-    friend ostream &operator<<(ostream &out_stream, const Matrix<T> &matr);
-    friend istream &operator>>(istream &in_stream, Matrix<T> &matr);
+    friend ostream &operator<<<>(ostream &out_stream, const Matrix<T> &matr);
+    friend istream &operator>><>(istream &in_stream, Matrix<T> &matr);
 };
 
 template <typename T>
@@ -153,22 +153,21 @@ int main()
     cout << "integer - integer : \n"
          << (matr_0 - matr_1);
 
-    // Matrix<float> ob_3(3, 3), ob_4(3, 3);
-    // cout << "Enter the values (float) : " << endl;
-    // cin >> ob_3;
-    // cin >> ob_4;
-    // cout << "float + float : \n"
-    //      << (ob_3 + ob_4);
-    // cout << "float - float : \n"
-    //      << (ob_3 - ob_4);
+    Matrix<float> matr_2(3, 3), matr_3(3, 3);
+    cout << "Enter the values (float) : " << endl;
+    cin >> matr_2;
+    cin >> matr_3;
+    cout << "float + float : \n"
+         << (matr_2 + matr_3);
+    cout << "float - float : \n"
+         << (matr_2 - matr_3);
 
-    // Matrix<Complex> complex_1(3, 3), complex_2(3, 3);
-    // cout << "Enter the values (complex) : " << endl;
-    // cin >> complex_1;
-    // cin >> complex_2;
-
-    // cout << "complex + complex : \n"
-    //      << (complex_1 + complex_2);
-    // cout << "complex - complex : \n"
-    //      << (complex_1 - complex_2);
+    Matrix<Complex> complex_1(3, 3), complex_2(3, 3);
+    cout << "Enter the values (complex) : " << endl;
+    cin >> complex_1;
+    cin >> complex_2;
+    cout << "complex + complex : \n"
+         << (complex_1 + complex_2);
+    cout << "complex - complex : \n"
+         << (complex_1 - complex_2);
 }
