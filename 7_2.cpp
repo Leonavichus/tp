@@ -10,13 +10,12 @@ public:
     Complex operator+(Complex ob);
     Complex operator-(Complex ob);
     Complex operator=(Complex ob);
-    friend ostream &operator<<(ostream &out_stream, Complex &dt);
+    friend ostream &operator<<(ostream &out_stream, const Complex &dt);
     friend istream &operator>>(istream &in_stream, Complex &dt);
 };
 
 Complex Complex::operator+(Complex ob)
 {
-    // Complex temp;
     a = a + ob.a;
     b = b + ob.b;
     return (*this);
@@ -24,7 +23,6 @@ Complex Complex::operator+(Complex ob)
 
 Complex Complex::operator-(Complex ob)
 {
-    // Complex temp;
     a = a - ob.a;
     b = b - ob.b;
     return (*this);
@@ -37,16 +35,14 @@ Complex Complex::operator=(Complex ob)
     return (*this);
 }
 
-ostream &operator<<(ostream &out_stream, Complex &dt)
+ostream &operator<<(ostream &out_stream, const Complex &dt)
 {
-    out_stream << "\n"
-               << dt.a << "+" << dt.b << endl;
+    out_stream << dt.a << "+" << dt.b << endl;
     return out_stream;
 }
 
 istream &operator>>(istream &in_stream, Complex &dt)
 {
-    cout << endl;
     cout << "a =";
     in_stream >> dt.a;
     cout << "b =";
@@ -60,16 +56,16 @@ template <typename T>
 class Matrix
 {
     T **m;
-    int string;
+    int str;
     int column;
 
 public:
-    Matrix(int string, int column);
-    friend istream &operator>><>(istream &in_stream, Matrix<T> &matr);
-    friend ostream &operator<<<>(ostream &out_stream, const Matrix<T> &matr);
+    Matrix(int str, int column);
     Matrix<T> operator+(Matrix<T> mtr);
     Matrix<T> operator-(Matrix<T> mtr);
     Matrix<T> operator=(Matrix<T> mtr);
+    friend ostream &operator<<<>(ostream &out_stream, const Matrix<T> &matr);
+    friend istream &operator>><>(istream &in_stream, Matrix<T> &matr);
 };
 
 template <typename T>
@@ -78,12 +74,12 @@ Matrix<T>::Matrix(int str, int col)
     int i, j;
 
     cout << "\nThe Constructor of Matrix\n";
-    string = str;
+    str = str;
     column = col;
 
-    m = new T[string];
+    m = new T[str];
 
-    for (i = 0; i < string; i++)
+    for (i = 0; i < str; i++)
     {
         m[i] = new T[column];
     }
@@ -93,7 +89,7 @@ template <typename T>
 istream &operator>>(istream &in_stream, Matrix<T> &matr)
 {
     int i, j;
-    for (i = 0; i < matr.string; i++)
+    for (i = 0; i < matr.str; i++)
     {
         for (j = 0; j < matr.column; j++)
         {
@@ -108,7 +104,7 @@ template <typename T>
 ostream &operator<<(ostream &out_stream, const Matrix<T> &matr)
 {
     int i, j;
-    for (i = 0; i < matr.string; i++)
+    for (i = 0; i < matr.str; i++)
     {
         for (j = 0; j < matr.column; j++)
         {
@@ -122,10 +118,9 @@ ostream &operator<<(ostream &out_stream, const Matrix<T> &matr)
 template <typename T>
 Matrix<T> Matrix<T>::operator+(Matrix<T> mtr)
 {
-    // matrix<T> temp(string, column);
     int i, j;
 
-    for (i = 0; i < string; i++)
+    for (i = 0; i < str; i++)
         for (j = 0; j < column; j++)
             m[i][j] = m[i][j] + mtr.m[i][j];
     return (*this);
@@ -134,9 +129,8 @@ Matrix<T> Matrix<T>::operator+(Matrix<T> mtr)
 template <typename T>
 Matrix<T> Matrix<T>::operator-(Matrix<T> mtr)
 {
-    // matrix<T> temp(row, col);
     int i, j;
-    for (i = 0; i < string; i++)
+    for (i = 0; i < str; i++)
         for (j = 0; j < column; j++)
             m[i][j] = m[i][j] - mtr.m[i][j];
     return (*this);
@@ -146,7 +140,7 @@ template <typename T>
 Matrix<T> Matrix<T>::operator=(Matrix<T> mtr)
 {
     int i, j;
-    for (i = 0; i < string; i++)
+    for (i = 0; i < str; i++)
         for (j = 0; j < column; j++)
             m[i][j] = mtr.m[i][j];
     return (*this);
