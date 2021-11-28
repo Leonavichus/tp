@@ -49,12 +49,12 @@ void Stack<T>::show()
 
 int main()
 {
-    int i, c = 0;
+    int n, c = 0;
     cout << "Введите размер стэка: ";
-    cin >> i;
-    Stack<int> myStack(i);
+    cin >> n;
+    Stack<int> myStack(n);
     cout << "Записываем элементы в стэк: ";
-    while (c++ != i)
+    while (c++ != n)
     {
         int temp;
         cin >> temp;
