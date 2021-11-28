@@ -56,11 +56,11 @@ template <typename T>
 class Matrix
 {
     T **m;
-    int string;
+    int strn;
     int column;
 
 public:
-    Matrix(int string, int column);
+    Matrix(int strn, int column);
     Matrix<T> operator+(Matrix<T> mtr);
     Matrix<T> operator-(Matrix<T> mtr);
     Matrix<T> operator=(Matrix<T> mtr);
@@ -72,13 +72,12 @@ template <typename T>
 Matrix<T>::Matrix(int str, int col)
 {
     int i, j;
-    cout << "\nThe Constructor of Matrix\n";
-    string = str;
+    strn = str;
     column = col;
 
-    m = new T[string];
+    m = new T *[strn];
 
-    for (i = 0; i < string; i++)
+    for (i = 0; i < strn; i++)
     {
         m[i] = new T[column];
     }
@@ -88,11 +87,11 @@ template <typename T>
 istream &operator>>(istream &in_stream, Matrix<T> &matr)
 {
     int i, j;
-    for (i = 0; i < matr.string; i++)
+    for (i = 0; i < matr.strn; i++)
     {
         for (j = 0; j < matr.column; j++)
         {
-            cout << "M[" << (i + 1) << "][" << (j + 1) << "]=";
+            cout << "M[" << i << "][" << j << "]=";
             in_stream >> matr.m[i][j];
         }
     }
@@ -103,7 +102,7 @@ template <typename T>
 ostream &operator<<(ostream &out_stream, const Matrix<T> &matr)
 {
     int i, j;
-    for (i = 0; i < matr.string; i++)
+    for (i = 0; i < matr.strn; i++)
     {
         for (j = 0; j < matr.column; j++)
         {
@@ -118,8 +117,7 @@ template <typename T>
 Matrix<T> Matrix<T>::operator+(Matrix<T> mtr)
 {
     int i, j;
-
-    for (i = 0; i < string; i++)
+    for (i = 0; i < strn; i++)
         for (j = 0; j < column; j++)
             m[i][j] = m[i][j] + mtr.m[i][j];
     return (*this);
@@ -129,7 +127,7 @@ template <typename T>
 Matrix<T> Matrix<T>::operator-(Matrix<T> mtr)
 {
     int i, j;
-    for (i = 0; i < string; i++)
+    for (i = 0; i < strn; i++)
         for (j = 0; j < column; j++)
             m[i][j] = m[i][j] - mtr.m[i][j];
     return (*this);
@@ -139,7 +137,7 @@ template <typename T>
 Matrix<T> Matrix<T>::operator=(Matrix<T> mtr)
 {
     int i, j;
-    for (i = 0; i < string; i++)
+    for (i = 0; i < strn; i++)
         for (j = 0; j < column; j++)
             m[i][j] = mtr.m[i][j];
     return (*this);
