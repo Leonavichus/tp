@@ -44,9 +44,9 @@ ostream &operator<<(ostream &out_stream, const Complex &dt)
 
 istream &operator>>(istream &in_stream, Complex &dt)
 {
-    cout << "a =";
+    cout << " a =";
     in_stream >> dt.a;
-    cout << "b =";
+    cout << " b =";
     in_stream >> dt.b;
     return in_stream;
 }
