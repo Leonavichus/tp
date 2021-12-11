@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <cstdio>
 using namespace std;
-#define pages 2 // количество страниц для манипулятор endp без параметров
+#define pages 2 // количество страниц для манипуляторов  endp без параметров
 
 // манипулятор endp без параметров
 ostream &endp(ostream &os)
