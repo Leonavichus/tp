@@ -27,12 +27,11 @@ int main()
     cout << "dec << " << a << endl;
     cout.unsetf(ios::showpos); // выключаем флаг
 
-    bool b = 1;
-    bool c = 0;
-    cout << "Bool << " << b << endl;
+    cout << true << " " << false << endl;
     cout.setf(ios::boolalpha); // включаем флаг вывода значения true, false вместо 1, 0
-    cout << "Bool 1 << " << b << endl;
-    cout << "Bool 0 << " << c << endl;
+    cout << true << " " << false << endl;
+    cout << noboolalpha << true << " " << false << endl;
+    cout << boolalpha << true << " " << false << endl;
 
     float f = 1123.21321;
     cout << "Стандартный f << " << f << endl;
