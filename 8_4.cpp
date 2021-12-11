@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <cstdio>
 using namespace std;
-#define pages 2 // колличество страниц для манипулятор endp без параметров
+#define pages 2 // количество страниц для манипулятор endp без параметров
 
 // манипулятор endp без параметров
 ostream &endp(ostream &os)
@@ -49,7 +49,7 @@ ostream &fendp(ostream &os, int n, char *s)
 int main()
 {
     cout << "Базовый манипулятор" << endl; // манипулятор без параметров
-    for (int i = 0; i < 6; i++)            // выводим последовательность от 0 до 5
+    for (int i = 0; i < 6; i++)            // выводим последовательность от 1 до 6
         cout << i + 1 << endp;
 
     cout << "Манипулятор количества страниц" << endl; // манипулятор с параметром количества
